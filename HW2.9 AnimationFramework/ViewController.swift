@@ -37,9 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func randomAnimationButton(_ sender: SpringButton) {
         index = Int.random(in: 0..<animations.count)
-        
         animator()
-        
     }
     
     @IBAction func resetButton() {
@@ -51,7 +49,6 @@ class ViewController: UIViewController {
         
         buttonLabel.isHidden = false
         resetButtonLabel.isHidden = true
-        
     }
     
     //MARK: - Private methods
@@ -59,10 +56,11 @@ class ViewController: UIViewController {
         if index < animations.count - 1 {
             
             viewLabel.animation = animations[index]
+            
             getRandomConfigAnimation()
             getDescription(with: animations[index], for: textLabel)
-            
             viewLabel.animate()
+            
             index += 1
             
         } else {
@@ -91,12 +89,10 @@ class ViewController: UIViewController {
         viewLabel.force = CGFloat((Double.random(in: 0.0...1.5)))
         viewLabel.velocity = CGFloat(Double.random(in: 0.0...1.5))
         viewLabel.damping = CGFloat(Double.random(in: 0.0...1.5))
-        
     }
   
     private func setUI() {
            viewLabel.layer.cornerRadius = 10
-           
            buttonLabel.layer.cornerRadius = 10
            randomAnimationButtonLabel.layer.cornerRadius = 10
            resetButtonLabel.layer.cornerRadius = 10
